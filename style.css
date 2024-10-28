@@ -19,7 +19,6 @@ h1 {
     text-transform: uppercase;
     text-align: center;
     font-weight: bold;
-    /* font-size: 40px; */
 }
 
 .wrapper {
@@ -35,7 +34,6 @@ h1 {
 }
 
 .wrapper .generator {
-    /* width: 50%; */
     margin: 0 auto;
     height: 100%;
     display: flex;
@@ -96,6 +94,11 @@ h1 {
     margin: 25px 0  0;
     text-align: center;
 }
+
+
+
+
+/* Responsive design mobile screens */
 
 @media (max-width: 600px) {
     .wrapper {

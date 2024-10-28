@@ -3,6 +3,8 @@ const imageHolder = document.getElementById('qr-image');
 const qrText = document.querySelector('input');
 const qrCodeHolder =  document.getElementById('qr-code')
 
+const downloadBtn = document.getElementById('download-btn')
+
 
 
 // function to generate Qr code
@@ -15,6 +17,19 @@ function generateQrCode() {
     alert ('Kindly enter text or url')  // Runs when the input field is empty
    }
 }
-
-
 generateBtn.addEventListener('click', generateQrCode)
+
+
+// function for qr code image download
+
+function downloadQrCode() {
+    let link = document.createElement('a');
+    link.download = 'qrcode.png'
+    link.href = imageHolder.src;
+    document.body.appendChild(link);
+    // link.click();
+    setTimeout(() => link.click(), 100);
+    document.body.removeChild(link);
+}
+
+downloadBtn.addEventListener('click', downloadQrCode)
