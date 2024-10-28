@@ -9,24 +9,38 @@ body {
     background-color: #030303e7;
 }
 
+.container {
+    margin: 40px auto;
+    width: fit-content;
+}
+
+h1 {
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+}
+
 .wrapper {
     width: fit-content;
     background-color: #fff;
-    padding: 50px 20px;
-    margin: 100px auto;
+    padding: 50px;
+    border-radius: 5px;
+    margin: 30px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
+    gap: 70px;
 }
 
 .wrapper .generator {
-    width: 60%;
+    /* width: 50%; */
     margin: 0 auto;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .generator p {
@@ -36,21 +50,26 @@ body {
 .generator input {
     border-radius: 5px;
     border: 1px solid gray;
-    padding: 10px;
+    padding: 15px;
     margin: 20px 0 0;
+}
+
+.generator input::placeholder {
+    font-size: 15px;
 }
 
 .generator input:focus {
     outline: none;
 }
 
-.generator button {
+.generator button,
+.qr-code button {
     border: none;
     background-color: burlywood;
     color: black;
-    padding: 10px;
+    padding: 15px;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     margin: 70px 0 0;
     cursor: pointer;
@@ -61,12 +80,21 @@ body {
 }
 
 .qr-code {
+    width: 50%;
     display: none; 
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.qr-code img {
+    display: block;
 }
 
 .qr-code p {
-    font-weight: 600;
-    margin: 15px 0  0;
+    font-weight: 700;
+    font-size: 23px;
+    margin: 25px 0  0;
+    text-align: center;
 }
 
 @media (max-width: 600px) {
@@ -74,9 +102,17 @@ body {
         flex-direction: column;
     }
 
+    .wrapper .generator {
+        width: 100%;
+    }
+
     .qr-code {
         margin: 15px 0 0;
-        width: 80%;
+        width: 100%;
         text-align: center;
+    }
+
+    .qr-code p {
+        margin: 25px 0 0;
     }
 }

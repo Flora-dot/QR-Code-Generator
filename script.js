@@ -10,7 +10,7 @@ const qrCodeHolder =  document.getElementById('qr-code')
 function generateQrCode() {
    if(qrText.value != '') {
      imageHolder.src = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + qrText.value;
-    qrCodeHolder.style.display = 'block'
+    qrCodeHolder.style.display = 'flex'
    } else {
     alert ('Kindly enter text or url')  // Runs when the input field is empty
    }
