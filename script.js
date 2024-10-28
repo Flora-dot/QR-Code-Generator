@@ -12,4 +12,5 @@ function generateQrCode() {
     qrCodeHolder.style.display = 'block'
 }
 
+
 generateBtn.addEventListener('click', generateQrCode)
