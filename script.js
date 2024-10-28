@@ -22,14 +22,36 @@ generateBtn.addEventListener('click', generateQrCode)
 
 // function for qr code image download
 
-function downloadQrCode() {
-    let link = document.createElement('a');
-    link.download = 'qrcode.png'
-    link.href = imageHolder.src;
-    document.body.appendChild(link);
-    // link.click();
-    setTimeout(() => link.click(), 100);
-    document.body.removeChild(link);
-}
+// function downloadQrCode() {
+//     let link = document.createElement('a');
+//     link.download = 'qrcode.png'
+//     link.href = imageHolder.src;
+//     document.body.appendChild(link);
+//     // link.click();
+//     setTimeout(() => link.click(), 100);
+//     document.body.removeChild(link);
+// }
 
+
+function downloadQrCode() {
+    if (imageHolder.src) {
+      fetch(imageHolder.src)
+        .then((response) => response.blob())
+        .then((blob) => {
+          const imageUrl = URL.createObjectURL(blob);
+          let link = document.createElement('a');
+          link.download = 'qrcode.png';
+          link.href = imageUrl;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          URL.revokeObjectURL(imageUrl);
+        })
+        .catch((error) => {
+          alert('Error downloading QR code: ' + error.message);
+        });
+    } else {
+      alert('No QR code generated yet. Please generate a QR code first.');
+    }
+  }
 downloadBtn.addEventListener('click', downloadQrCode)
